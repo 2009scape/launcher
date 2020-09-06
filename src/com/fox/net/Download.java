@@ -116,8 +116,11 @@ public class Download extends Observable implements Runnable {
 	        if(!new File(Settings.SAVE_DIR).exists()){
 	        	new File(Settings.SAVE_DIR).mkdir();
 			}
-	        new File(Settings.SAVE_DIR + Settings.SAVE_NAME).createNewFile();
-	        file = new RandomAccessFile(Settings.SAVE_DIR + Settings.SAVE_NAME, "rw");
+	        if (new File(Settings.SAVE_DIR + Settings.SAVE_NAME).exists()) {
+	        	new File(Settings.SAVE_DIR + Settings.SAVE_NAME).delete();
+			}
+			new File(Settings.SAVE_DIR + Settings.SAVE_NAME).createNewFile();
+			file = new RandomAccessFile(Settings.SAVE_DIR + Settings.SAVE_NAME, "rw");
 	        file.seek(downloaded);
 	
 	        stream = connection.getInputStream();
