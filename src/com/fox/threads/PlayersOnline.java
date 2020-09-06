@@ -28,7 +28,7 @@ public class PlayersOnline implements Runnable {
 				return;
 			}
 			int count = scanner.nextInt();
-			AppFrame.playerCount.setText("There are "+count+" player(s) Online!");
+			AppFrame.playerCount.setText("There are " + count + " player(s) Online!");
 		} catch (Exception e) {
 			AppFrame.playerCount.setText("Error fetching Players Online");
 		}
