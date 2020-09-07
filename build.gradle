@@ -1,0 +1,38 @@
+plugins {
+    id "java"
+    id "application"
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+mainClassName = 'fox.Launcher'
+
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+    mavenCentral()
+}
+
+dependencies {
+}
+
+
+jar {
+    archiveBaseName = '2009scapeLauncher'
+    archiveVersion =  '1.0.0'
+    manifest {
+        attributes 'Main-Class': 'com.fox.Launcher',
+                   'Class-Path': configurations.runtime.files.collect { "lib/$it.name" }.join(' ')
+    }
+    from('src') {
+       include 'data/**'
+    }
+}
+
+sourceSets {
+    main.java.srcDirs = ['src/com/fox']
+}
+
