@@ -1,0 +1,8 @@
+{
+  "classPath": [
+    "2009scape.jar"
+  ],
+  "mainClass": "com.fox.Launcher",
+  "vmArgs": [
+  ]
+}
