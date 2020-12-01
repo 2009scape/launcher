@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "NOTE: THIS DOES NOT WORK. IT HAS NEVER BEEN MODIFIED SINCE COPIED FROM https://github.com/open-osrs/launcher/blob/master/build-osx.sh"
+
 set -e
 
 JDK_VER="11.0.4"

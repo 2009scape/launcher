@@ -71,3 +71,7 @@ chmod 755 appimagetool-x86_64.AppImage
 ./appimagetool-x86_64.AppImage \
 	native-linux/OpenOSRS.AppDir/ \
 	native-linux/OpenOSRS.AppImage
+
+echo "Cleaning up.."
+
+mv native-linux/OpenOSRS.AppImage .
