@@ -75,4 +75,4 @@ chmod 755 appimagetool-x86_64.AppImage
 echo "Cleaning up.."
 
 mv native-linux/OpenOSRS.AppImage .
-rm -rf packr packr.jar packr_runelite-1.0.jar native-linux 
+rm -rf packr packr.jar packr_runelite-1.0.jar native-linux linux-jdk OpenJDK11U-jre_x64_linux_hotspot_${JDK_VER}_${JDK_BUILD}.tar.gz 
