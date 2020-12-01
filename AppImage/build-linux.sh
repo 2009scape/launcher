@@ -6,6 +6,8 @@ JDK_VER="11.0.4"
 JDK_BUILD="11"
 PACKR_VERSION="runelite-1.0"
 
+rm -f 2009scape.AppImage
+
 # Check if there's a client jar file - If there's no file the AppImage will not work but will still be built.
 if ! [ -e 2009scape.jar ]
 then
@@ -44,37 +46,37 @@ java -jar packr_${PACKR_VERSION}.jar \
     --jdk \
     linux-jdk \
     --executable \
-    OpenOSRS \
+    2009scape \
     --classpath \
     2009scape.jar \
     --mainclass \
     com.fox.Launcher \
     --output \
-    native-linux/OpenOSRS.AppDir/ \
+    native-linux/2009scape.AppDir/ \
     --resources \
     appimage/2009scape.desktop \
     appimage/2009scape.png
 
-cp appimage/2009scapeicon.png native-linux/OpenOSRS.AppDir
+cp appimage/2009scape.png native-linux/2009scape.AppDir
 
-pushd native-linux/OpenOSRS.AppDir
+pushd native-linux/2009scape.AppDir
 mkdir -p jre/lib/amd64/server/
 ln -s ../../server/libjvm.so jre/lib/amd64/server/ # packr looks for libjvm at this hardcoded path
 popd
 
 # Symlink AppRun -> RuneLite
-pushd native-linux/OpenOSRS.AppDir/
-ln -s OpenOSRS AppRun
+pushd native-linux/2009scape.AppDir/
+ln -s 2009scape AppRun
 popd
 
 curl -Lo appimagetool-x86_64.AppImage https://github.com/AppImage/AppImageKit/releases/download/12/appimagetool-x86_64.AppImage
 chmod 755 appimagetool-x86_64.AppImage
 
 ./appimagetool-x86_64.AppImage \
-	native-linux/OpenOSRS.AppDir/ \
-	native-linux/OpenOSRS.AppImage
+	native-linux/2009scape.AppDir/ \
+	native-linux/2009scape.AppImage
 
 echo "Cleaning up.."
 
-mv native-linux/OpenOSRS.AppImage .
+mv native-linux/2009scape.AppImage .
 rm -rf packr packr.jar packr_runelite-1.0.jar native-linux linux-jdk OpenJDK11U-jre_x64_linux_hotspot_${JDK_VER}_${JDK_BUILD}.tar.gz 
