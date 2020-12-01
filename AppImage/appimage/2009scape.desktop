@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=@finalName@
+Comment=@description@
+Exec=@finalName@
+Icon=2009scapeicon
+Terminal=false
+Type=Application
+Categories=Game;

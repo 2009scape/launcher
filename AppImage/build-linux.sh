@@ -52,8 +52,10 @@ java -jar packr_${PACKR_VERSION}.jar \
     --output \
     native-linux/OpenOSRS.AppDir/ \
     --resources \
-    appimage/openosrs.desktop \
-    appimage/openosrs.png
+    appimage/2009scape.desktop \
+    appimage/2009scape.png
+
+cp appimage/2009scapeicon.png native-linux/OpenOSRS.AppDir
 
 pushd native-linux/OpenOSRS.AppDir
 mkdir -p jre/lib/amd64/server/
