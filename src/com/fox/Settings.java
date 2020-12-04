@@ -7,14 +7,14 @@ import java.io.File;
 public class Settings {
 
 	public static final String SERVER_NAME = "2009scape";
-	public static final String DOWNLOAD_URL = "http://127.0.0.1/2009scape.jar";
-	public static final String CACHE_URL = "http://127.0.0.1/";
+	public static final String DOWNLOAD_URL = "http://play.2009scape.org/2009scape.jar";
+	public static final String CACHE_URL = "http://play.2009scape.org/";
 
 	public static final String SAVE_NAME = "2009scape.jar";
 	public static final String SAVE_DIR = System.getProperty("user.home") + File.separator;
 	public static final String CACHE_DIR = System.getProperty("user.home") + File.separator + ".runite_rs" + File.separator + "runescape" + File.separator;
 	
-	public static final String SERVER_IP = "127.0.0.1";
+	public static final String SERVER_IP = "play.2009scape.org";
 	public static final int SERVER_PORT = 43595;
 	
 	public static final boolean enableMusicPlayer = true;
