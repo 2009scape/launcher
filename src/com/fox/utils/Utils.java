@@ -48,7 +48,7 @@ public class Utils {
 			AppFrame.playButton.setEnabled(false);
 			new ProcessTest(proc).startTesting();
 		} catch (Exception e) {
-
+			System.out.println("Failed to launch client! " + e);
 		}
 	}
 

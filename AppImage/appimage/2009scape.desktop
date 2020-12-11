@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=2009scape
+Comment=2009scape - Your Adventure Awaits!
+Exec=@finalName@
+Icon=2009scape
+Terminal=false
+Type=Application
+Categories=Game;
