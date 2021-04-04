@@ -28,11 +28,12 @@ public class ButtonListener implements ActionListener {
 		case "X":
 			System.exit(0);
 			break;
-			
-		case "play":
+			case "play1":
+		case "play2":
 			Thread t = new Thread() {
 				public void run() {
-					
+
+					AppFrame.playButton2.setEnabled(false);
 					AppFrame.playButton.setEnabled(false);
 					AppFrame.pbar.setString("Checking for Client Updates...");
 					
@@ -40,7 +41,7 @@ public class ButtonListener implements ActionListener {
 					byte idx255status = Update.updateExists(1,"main_file_cache.idx255");
 					if (status == 0 && idx255status == 0) {
 						AppFrame.pbar.setString("Now Launching "+Settings.SERVER_NAME+"!");
-						Utils.launchClient();
+						Utils.launchClient(e.getActionCommand().equals("play1") ? 0 : 1);
 						return;
 					} else {
 						System.out.println("JAR STATUS: " + status);

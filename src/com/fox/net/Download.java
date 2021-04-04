@@ -154,6 +154,7 @@ public class Download extends Observable implements Runnable {
 	            if(downloaded == contentLength){
 	            	if(ButtonListener.checkRun()){
 	            		AppFrame.playButton.setEnabled(true);
+	            		AppFrame.playButton2.setEnabled(true);
 						AppFrame.pbar.setValue(0);
 						AppFrame.pbar.setString("Click Launch to play "+Settings.SERVER_NAME+"!");
 						stateChanged();
