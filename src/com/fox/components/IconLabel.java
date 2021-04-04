@@ -27,7 +27,7 @@ public class IconLabel extends JLabel implements MouseListener {
     	this.tracking = 1;
     	setForeground(Settings.primaryColor);
     	this.setRightShadow(1, 1, Settings.iconShadow);
-    	Utils.setFont(this, "OpenSans-Light.ttf", fontSize);
+    	Utils.setFont(this, "FontAwesome.ttf", fontSize);
     }
     
     public IconLabel(String text, String action, int fontSize) { 

@@ -30,19 +30,20 @@ public class AppFrame extends JFrame {
 		appWidth = (int) getPreferredSize().getWidth();
 		appHeight = (int) getPreferredSize().getHeight();
 		
-		setUndecorated(true);
+		setUndecorated(false);
 		setTitle(Settings.SERVER_NAME);
 		setLayout(null);
 		getRootPane().setBorder(new LineBorder(Color.BLACK));
 		getContentPane().setBackground(Settings.backgroundColor);
 		
-		addMenuBar();
+		//addMenuBar();
 		addNewsBox();
+		addWorldSelect();
 		addLinks();
 		addHeader();
 		addPlayButton();
 		addProgressBar();
-		
+
 		setIconImage(Utils.getImage("favicon_large.png").getImage());
 		addMouseListener();
 		pack();
@@ -62,7 +63,7 @@ public class AppFrame extends JFrame {
 		    }
 		});
 		
-		pbar.setBounds(100, appHeight - 35, appWidth - 100, 35);
+		pbar.setBounds(0, appHeight - 35, appWidth, 35);
 		pbar.setBackground(Settings.backgroundColor.darker());
 		pbar.setBorderPainted(false);
 		pbar.setStringPainted(true);
@@ -72,17 +73,59 @@ public class AppFrame extends JFrame {
 		Utils.setFont(pbar, "OpenSans-Regular.ttf", 13);
 		add(pbar);
 	}
-	
-	public static Control playButton = new Control("Launch");
-	
+
+
+	public static Control playButton = new Control("Play");
 	private void addPlayButton() {
-		playButton.setActionCommand("play");
+
+		playButton.setActionCommand("play1");
 		playButton.setBackground(Settings.primaryColor);
 		playButton.addActionListener(new ButtonListener());
 		//(appWidth / 2) - (167 / 2)
-		playButton.setBounds(0, appHeight - 35, 100, 35);
+		playButton.setBounds(151, appHeight - 88, 100, 35);
 		Utils.setFont(playButton, "OpenSans-Regular.ttf", 16);
 		add(playButton);
+	}
+
+	public static Control playButton2 = new Control("Play");
+	private void addPlayButton2() {
+		playButton2.setActionCommand("play2");
+		playButton2.setBackground(Settings.primaryColor);
+		playButton2.addActionListener(new ButtonListener());
+		//(appWidth / 2) - (167 / 2)
+		playButton2.setBounds(appWidth - 254, appHeight - 88, 100, 35);
+		Utils.setFont(playButton2, "OpenSans-Regular.ttf", 16);
+		playButton2.setEnabled(true);
+		add(playButton2);
+	}
+
+	private void addWorldSelect() {
+		JLabel world1box = new JLabel("");
+		JLabel world1text = new JLabel("World 1 - Authentic");
+		world1text.setBounds(20, appHeight - 80, 145,20);
+		world1text.setForeground(Color.WHITE);
+		Utils.setFont(world1text,"OpenSans-Regular.ttf",12);
+		world1box.setBounds(5, appHeight - 90,250,40);
+		world1box.setOpaque(true);
+		world1box.setBackground(new Color(0.0f,0.0f,0.0f,0.2f));
+		add(world1box);
+		add(world1text);
+
+		IconLabel globeIcon = new IconLabel("\uf0ac",50);
+		globeIcon.setBounds(275,appHeight - 98,64,64);
+		add(globeIcon);
+
+		JLabel world2box = new JLabel("");
+		JLabel world2Text = new JLabel("World 2 - Custom/QoL");
+		world2Text.setBounds(appWidth - 145,appHeight - 80,145,20);
+		world2Text.setForeground(Color.WHITE);
+		Utils.setFont(world2Text,"OpenSans-Regular.ttf",12);
+		world2box.setBounds(appWidth - 258,appHeight - 90, 250, 40);
+		world2box.setOpaque(true);
+		world2box.setBackground(new Color(0.0f,0.0f,0.0f,0.2f));
+		add(world2box);
+		add(world2Text);
+		addPlayButton2();
 	}
 	
 	public static JLabel tooltip;
@@ -91,18 +134,18 @@ public class AppFrame extends JFrame {
 	
 	private void addLinks() {
 		tooltip = new JLabel("");
-		tooltip.setBounds(135,  appHeight - 120, 335, 35);
+		tooltip.setBounds(135,  appHeight - 140, 335, 35);
 		tooltip.setHorizontalAlignment(SwingConstants.CENTER);
 		Utils.setFont(tooltip, "OpenSans-Light.ttf", 30);
 		tooltip.setForeground(Color.white);
 		add(tooltip);
 		
 		IconLabel forum = new IconLabel("\uf086", "Community", 50);
-		forum.setBounds(275, 170, 64, 64);//forum.setBounds(135, 170, 64, 64);
+		forum.setBounds(275, 150, 64, 64);//forum.setBounds(135, 170, 64, 64);
 		add(forum);
 		
 		IconLabel hs = new IconLabel("\uf080", "Leaderboards", 50);
-		hs.setBounds(205, 170, 64, 64);
+		hs.setBounds(205, 150, 64, 64);
 		add(hs);
 		
 		/*IconLabel shop = new IconLabel("\uf07a", "Shopping Center", 50);
@@ -114,7 +157,7 @@ public class AppFrame extends JFrame {
 		add(vote);*/
 		
 		IconLabel web = new IconLabel("\uf188", "Report an Issue", 50);
-		web.setBounds(345, 172, 64, 64);//web.setBounds(415, 172, 64, 64);
+		web.setBounds(345, 152, 64, 64);//web.setBounds(415, 172, 64, 64);
 		add(web);
 		
 		if (Settings.enableMusicPlayer) {
@@ -177,9 +220,9 @@ public class AppFrame extends JFrame {
 		status1.setHorizontalAlignment(SwingConstants.CENTER);
 		status1.setBounds(0, 75, appWidth, 95);
 		Utils.setFont(status1, "OpenSans-Light.ttf", 40);
-		add(status1);
+		//add(status1);
 		
-		final JLabel status2 = new JLabel("<html>We are currently "+serverStatus+"!</html>");
+		/*final JLabel status2 = new JLabel("<html>We are currently "+serverStatus+"!</html>");
 		
 		new Thread() {
 			public void run() {
@@ -194,7 +237,7 @@ public class AppFrame extends JFrame {
 		status2.setHorizontalAlignment(SwingConstants.CENTER);
 		status2.setBounds(0, 25, appWidth, 25);
 		Utils.setFont(status2, "OpenSans-Light.ttf", 14);
-		add(status2);
+		add(status2);*/
 	}
 	
 	private void addMenuBar() {
@@ -206,14 +249,14 @@ public class AppFrame extends JFrame {
 	@SuppressWarnings("unused")
 	private void addHeader() {
 		JLabel logo = new JLabel(Utils.getImage("logo.png"));
-		logo.setBounds(30, 55, 350, 60);
-//		add(logo);
+		logo.setBounds(125, 55, 350, 60);
+		add(logo);
 		
-		JLabel head = new JLabel(" ");
-		head.setOpaque(true);
-		head.setBackground(new Color(0.0f, 0.0f, 0.0f, 0.2f));
-		head.setBounds(-1, 25, appWidth, 114);
-		add(head);
+//		JLabel head = new JLabel(" ");
+//		head.setOpaque(true);
+//		head.setBackground(new Color(0.0f, 0.0f, 0.0f, 0.2f));
+//		head.setBounds(-1, 25, appWidth, 114);
+//		add(head);
 	}
 	
 	private void addMouseListener() {

@@ -39,14 +39,11 @@ public class Utils {
 	 * Uses the ProcessBuilder class to launch the client.jar from the specified
 	 * folder
 	 */
-	public static void launchClient() {
+	public static void launchClient(int which) {
 		AppFrame.playButton.setEnabled(true);
 		try {
-			ProcessBuilder pb = new ProcessBuilder("java", "-jar", Settings.SAVE_DIR + Settings.SAVE_NAME);
-			pb.directory(new File(System.getProperty("java.home") + File.separator + "bin"));
-			final Process proc = pb.start();
-			AppFrame.playButton.setEnabled(false);
-			new ProcessTest(proc).startTesting();
+			Runtime.getRuntime().exec("java -jar " + Settings.SAVE_DIR + Settings.SAVE_NAME + (which == 1 ? " world=2" : ""),null, new File(System.getProperty("user.home")));
+			System.exit(0);
 		} catch (Exception e) {
 			System.out.println("Failed to launch client! " + e);
 		}
